@@ -9,26 +9,90 @@ import org.testng.log4testng.Logger;
 
 public class ServiceUtils {
 
-    private final static String ACCEPT = "accept";
-    private final static String ACCEPT_ENCODING = "accept-encoding";
-    private final static String ACCEPT_HEADERS = "*/*";
-    private final static String ACCEPT_ENCODING_HEADERS = "gzip, deflate, br";
+    private static final String ACCEPT = "accept";
+    private static final String ACCEPT_ENCODING = "accept-encoding";
+    private static final String ACCEPT_HEADERS = "*/*";
+    private static final String ACCEPT_ENCODING_HEADERS = "gzip, deflate, br";
+    private static final String CONTENT_TYPE = "content_type";
+    private static final String CONTENT_TYPE_HEADERS = "application/json";
+    private static final String INCORRECT_CONTENT_TYPE_HEADERS = "text/plain";
     public static org.testng.log4testng.Logger logger = Logger.getLogger(CategoryTest.class);
 
 
-    public static Response getCategoryResponse(String categoryId){
+    public static Response getCategoryResponse(String categoryId) {
 
         RestAssured.baseURI = "https://api.tmsandbox.co.nz";
         RequestSpecification request = RestAssured.given().relaxedHTTPSValidation();
+        request.header(ACCEPT, ACCEPT_HEADERS);
+        request.header(ACCEPT_ENCODING, ACCEPT_ENCODING_HEADERS);
+        request.header(CONTENT_TYPE, CONTENT_TYPE_HEADERS);
+        request.param("catalogue", false);
         logger.info("Request URI: " + request.log().uri());
         logger.info("Request headers: " + request.log().headers());
         logger.info("Request params: " + request.log().params());
+        return request.get("v1/Categories/" + categoryId + "/Details.json");
+    }
+
+    public static Response getInvalidCategoryResponseForIncorrectHeaders(String categoryId) {
+
+        RestAssured.baseURI = "https://api.tmsandbox.co.nz";
+        RequestSpecification request = RestAssured.given().relaxedHTTPSValidation();
+        request.header(CONTENT_TYPE, INCORRECT_CONTENT_TYPE_HEADERS);
+        request.param("catalogue", false);
+        logger.info("Request URI: " + request.log().uri());
+        logger.info("Request headers: " + request.log().headers());
+        logger.info("Request params: " + request.log().params());
+        return request.get("v1/Categories/" + categoryId + "/Details.json");
+
+    }
+
+    public static Response getInvalidCategoryResponseForInvalidURI(String categoryId) {
+
+        RestAssured.baseURI = "https://api.tmsandbox.co.nz";
+        RequestSpecification request = RestAssured.given().relaxedHTTPSValidation();
+        request.param("catalogue", false);
+        logger.info("Request URI: " + request.log().uri());
+        logger.info("Request headers: " + request.log().headers());
+        logger.info("Request params: " + request.log().params());
+        return request.get("v1/xxxxxCategories/" + categoryId + "/Details.json");
+    }
+
+    public static Response getInvalidCategoryResponseForInvalidParameters(String categoryId) {
+
+        RestAssured.baseURI = "https://api.tmsandbox.co.nz";
+        RequestSpecification request = RestAssured.given().relaxedHTTPSValidation();
+        request.param("catalogue", 1234);
+        logger.info("Request URI: " + request.log().uri());
+        logger.info("Request headers: " + request.log().headers());
+        logger.info("Request params: " + request.log().params());
+        return request.get("v1/Categories/" + categoryId + "/Details.json");
+    }
+
+    public static Response getCategoryResponseforACategoryIdThatDoesntExist(String categoryId) {
+
+        RestAssured.baseURI = "https://api.tmsandbox.co.nz";
+        RequestSpecification request = RestAssured.given().relaxedHTTPSValidation();
         request.header(ACCEPT, ACCEPT_HEADERS);
         request.header(ACCEPT_ENCODING, ACCEPT_ENCODING_HEADERS);
         request.param("catalogue", false);
-        Response response = request.get("v1/Categories/" + categoryId + "/Details.json");
-        return response;
+        logger.info("Request URI: " + request.log().uri());
+        logger.info("Request headers: " + request.log().headers());
+        logger.info("Request params: " + request.log().params());
+        return request.get("v1/Categories/" + categoryId + "/Details.json");
+    }
 
+    public static Response getInvalidCategoryResponseForEmptyHeaders(String categoryId) {
+
+        RestAssured.baseURI = "https://api.tmsandbox.co.nz";
+        RequestSpecification request = RestAssured.given().relaxedHTTPSValidation();
+        request.header(ACCEPT, "");
+        request.header(ACCEPT_ENCODING, "");
+        request.header(CONTENT_TYPE, "");
+        request.param("catalogue", false);
+        logger.info("Request URI: " + request.log().uri());
+        logger.info("Request headers: " + request.log().headers());
+        logger.info("Request params: " + request.log().params());
+        return request.get("v1/Categories/" + categoryId + "/Details.json");
     }
 
 }
