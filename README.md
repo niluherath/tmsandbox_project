@@ -26,3 +26,7 @@ Project set up
 5. Create a Git hub repository
 
 6. Create a Git hub project with a read me file
+
+7. Open the project folder with your ide
+8. In your IDE set the java version and maven home path
+9. Run command "mvn clean install" in your ide terminal. This will clean and install each module 
