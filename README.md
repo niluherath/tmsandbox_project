@@ -29,23 +29,23 @@ The Promotions element with Name = "Gallery" has a Description that contains the
 4. Download and install git
 * Visit website https://git-scm.com/downloads and download git as per operating system 
 
-5. Create a Git hub repository
+5. clone repository -> https://github.com/niluherath/tmsandbox_project
+Use command git clone https://github.com/niluherath/tmsandbox_project
 
-6. Create a Git hub project with a read me file
 
-7. Open the project folder with your ide(as a maven project)
+6. Open the project folder with your ide(as a maven project)
 
-8. In your IDE set the JDK version and maven home path
+7.In your IDE set the JDK version and maven home path
 
-9. Run command "mvn clean install" in your ide terminal. This will clean and install each module 
+8. Run command "mvn clean install" in your ide terminal. This will clean and install each module 
 
-10. Add sonar qube plugin for code scanning
+9. Add sonar qube plugin for code scanning
 
-11.Download and install postman for API validation if necessary
+10. Download and install postman for API validation if necessary
 
-12. JSON to JAVA converter -> https://json2csharp.com/code-converters/json-to-pojo
+11. JSON to JAVA converter -> https://json2csharp.com/code-converters/json-to-pojo
 
-13. maven dependencies added in the POM.xml
+12. maven dependencies added in the POM.xml
 * testng dependency for test framework   
 <dependency>
     <groupId>org.testng</groupId>
@@ -74,15 +74,15 @@ The Promotions element with Name = "Gallery" has a Description that contains the
 **Project structure**
 
 1. src/main/java/com.pojo package has these four test classes
-Category, Fees, ListingFeeTier and Promotion
-Category class contains other three classes inside it.
-Returned JSON response is converted to Category object
+   Category, Fees, ListingFeeTier and Promotion
+   Category class contains other three classes inside it.
+   Returned JSON response is converted to Category object
 2. src/test/java/com.api
-contains, CategoryTest and NegativeCategoryTest classes
-CategoryTest has test cases to test the response that are associated with GET Category endpoint
-NegativeCategoryTest has all the negative test cases that are associated with GET Category endpoint
+   contains, CategoryTest and NegativeCategoryTest classes
+   CategoryTest has test cases to test the response that are associated with GET Category endpoint
+   NegativeCategoryTest has all the negative test cases that are associated with GET Category endpoint
 3. src/test/java/com.utils
-contains, ServiceUtils class calls the endpoints and returns the API response to the test class
+   contains, ServiceUtils class calls the endpoints and returns the API response to the test class
 4. pom.xml
 contains the maven dependencies
 5. testng.xml
