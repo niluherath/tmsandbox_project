@@ -5,6 +5,7 @@
 
         <classes>
             <class name="com.api.CategoryTest"></class>
+            <class name="com.api.NegativeCategoryTest"></class>
         </classes>
     </test>
 </suite>
