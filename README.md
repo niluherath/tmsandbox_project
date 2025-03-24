@@ -145,6 +145,6 @@ emailable-report.html should be open in a browser that you prefer
 
 **CI/CD run**
 
-As soon as new code gets pushed to the repository git hub actions, a workflow will be triggered
-Once the the workflow is completed you will be able to download a sure fire test report
+As soon as new code gets pushed to the repository GitHub actions, a workflow will be triggered
+Once the workflow is completed you will be able to download a sure fire test report
 
