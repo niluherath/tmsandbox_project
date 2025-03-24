@@ -122,6 +122,14 @@ to get a idea of if JSON response is correctly converted POJO classes in com.poj
 
 *actions/upload-artifact@v4:    Uploads test reports (target/surefire-reports/) for debugging.
 
+**Features of the test framework**
+1. Ability to automate REST APIs using Rest Assured library
+2. Responses are converted to POJO Objects for easy validation 
+3. POJO objects that are implemented in the framework can be reused to validate POST, PUT, PATCH calls
+4. Sure fire test reporting
+5. CI/CD run in Git hub actions
+6. Downloadable test report in workflow
+
 **Running tests locally**
 
 There are few ways to run tests in local,
@@ -139,3 +147,4 @@ emailable-report.html should be open in a browser that you prefer
 
 As soon as new code gets pushed to the repository git hub actions, a workflow will be triggered
 Once the the workflow is completed you will be able to download a sure fire test report
+
