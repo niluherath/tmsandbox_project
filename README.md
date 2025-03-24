@@ -1,6 +1,7 @@
 # tmsandbox_project
 
 **Objective of the project**
+
 For the API = https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false
 Validate the acceptance criteria below,
 Name = "Carbon credits"
@@ -8,6 +9,7 @@ CanRelist = true
 The Promotions element with Name = "Gallery" has a Description that contains the text "Good position in category"
 
 **Project set up**
+
 1. Download and install JAVA (I have installed JDK 23.0.2)
 * Visit website, https://www.oracle.com/in/java/ Click on the “Download Java” icon.
 * Now you can see the latest version is JDK 23 and there are options for Linux, macOS, and Windows. 
@@ -70,32 +72,33 @@ The Promotions element with Name = "Gallery" has a Description that contains the
 
 
 **Project structure**
-*src/main/java/com.pojo package has these four test classes
+
+1. src/main/java/com.pojo package has these four test classes
 Category, Fees, ListingFeeTier and Promotion
 Category class contains other three classes inside it.
 Returned JSON response is converted to Category object
-
-*src/test/java/com.api
+2. src/test/java/com.api
 contains, CategoryTest and NegativeCategoryTest classes
 CategoryTest has test cases to test the response that are associated with GET Category endpoint
 NegativeCategoryTest has all the negative test cases that are associated with GET Category endpoint
-
-*src/test/java/com.utils
+3. src/test/java/com.utils
 contains, ServiceUtils class calls the endpoints and returns the API response to the test class
-
-*pom.xml
+4. pom.xml
 contains the maven dependencies
-
-*testng.xml
+5. testng.xml
 adds configuarations to run tests as suites
+6. maven-test.yml:
+Step	Description:
+*on: push & pull_request- Runs tests on every push and PR to main.
 
-*maven.yml
-Step	Description
-on: push & pull_request	Runs tests on every push and PR to main.
-runs-on: ubuntu-latest: Uses Ubuntu as the environment.
-actions/checkout@v4: Pulls the latest code from the repo.
-actions/setup-java@v3:	Installs Java 17 and enables Maven caching for faster builds.
-mvn clean test:	Runs all TestNG tests in the project.
-actions/upload-artifact@v4:	Uploads test reports (target/surefire-reports/) for debugging.
+*runs-on: ubuntu-latest: Uses Ubuntu as the environment.
+
+*actions/checkout@v4: Pulls the latest code from the repo.
+
+*actions/setup-java@v3:	Installs Java 17 and enables Maven caching for faster builds.
+
+*mvn clean test:	Runs all TestNG tests in the project.
+
+*actions/upload-artifact@v4:	Uploads test reports (target/surefire-reports/) for debugging.
 
 

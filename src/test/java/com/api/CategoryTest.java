@@ -54,7 +54,7 @@ public class CategoryTest {
         Assert.assertEquals(response.getStatusCode(), 200);
         logger.info(response.prettyPeek());
         Category category = response.as(Category.class);
-        Assert.assertTrue(!category.getPromotions().isEmpty());
+        Assert.assertFalse(category.getPromotions().isEmpty());
 
         boolean isPromotionFound = false;
 
