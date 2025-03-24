@@ -69,7 +69,7 @@ The Promotions element with Name = "Gallery" has a Description that contains the
     </plugins>
 
 
-**Project structure*
+**Project structure**
 *src/main/java/com.pojo package has these four test classes
 Category, Fees, ListingFeeTier and Promotion
 Category class contains other three classes inside it.
