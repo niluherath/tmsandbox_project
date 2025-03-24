@@ -19,7 +19,7 @@ public class CategoryTest extends BaseTest {
 
         Response response = ServiceUtils.getCategoryResponse(categoryId);
         Assert.assertEquals(response.getStatusCode(), RESPONSE_CODE_200);
-        LOGGER.info(response.prettyPeek());
+        logger.info(response.prettyPeek());
         Category category = response.as(Category.class);
         Assert.assertEquals(category.getCategoryId(), Integer.parseInt(categoryId));
     }
@@ -29,7 +29,7 @@ public class CategoryTest extends BaseTest {
 
         Response response = ServiceUtils.getCategoryResponse(categoryId);
         Assert.assertEquals(response.getStatusCode(), RESPONSE_CODE_200);
-        LOGGER.info(response.prettyPeek());
+        logger.info(response.prettyPeek());
         Category category = response.as(Category.class);
         Assert.assertEquals(category.getName(), categoryName);
     }
@@ -39,7 +39,7 @@ public class CategoryTest extends BaseTest {
 
         Response response = ServiceUtils.getCategoryResponse(categoryId);
         Assert.assertEquals(response.getStatusCode(), RESPONSE_CODE_200);
-        LOGGER.info(response.prettyPeek());
+        logger.info(response.prettyPeek());
         Category category = response.as(Category.class);
         Assert.assertTrue(category.canRelist);
     }
@@ -49,7 +49,7 @@ public class CategoryTest extends BaseTest {
 
         Response response = ServiceUtils.getCategoryResponse(categoryId);
         Assert.assertEquals(response.getStatusCode(), RESPONSE_CODE_200);
-        LOGGER.info(response.prettyPeek());
+        logger.info(response.prettyPeek());
         Category category = response.as(Category.class);
         Assert.assertFalse(category.getPromotions().isEmpty());
 

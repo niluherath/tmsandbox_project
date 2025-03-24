@@ -9,6 +9,6 @@ public abstract class BaseTest {
     protected static final int RESPONSE_CODE_404 = 404;
     protected static final int RESPONSE_CODE_415 = 415;
 
-    protected static Logger LOGGER = Logger.getLogger(BaseTest.class);
+    protected static Logger logger = Logger.getLogger(BaseTest.class);
 
 }

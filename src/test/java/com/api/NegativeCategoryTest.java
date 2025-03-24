@@ -15,7 +15,7 @@ public class NegativeCategoryTest extends BaseTest {
 
         Response response = ServiceUtils.getCategoryResponseforACategoryIdThatDoesntExist(nonExistentCategoryId);
         Assert.assertEquals(response.getStatusCode(), RESPONSE_CODE_404);
-        LOGGER.info(response.prettyPeek());
+        logger.info(response.prettyPeek());
     }
 
     @Test(description = "validates 415 response for incorrect header")
@@ -23,7 +23,7 @@ public class NegativeCategoryTest extends BaseTest {
 
         Response response = ServiceUtils.getCategoryResponseForIncorrectHeaders(categoryId);
         Assert.assertEquals(response.getStatusCode(), RESPONSE_CODE_415);
-        LOGGER.info(response.prettyPeek());
+        logger.info(response.prettyPeek());
     }
 
     @Test(description = "validates 400 response for empty headers")
@@ -31,7 +31,7 @@ public class NegativeCategoryTest extends BaseTest {
 
         Response response = ServiceUtils.getCategoryResponseForEmptyHeaders(categoryId);
         Assert.assertEquals(response.getStatusCode(), RESPONSE_CODE_400);
-        LOGGER.info(response.prettyPeek());
+        logger.info(response.prettyPeek());
     }
 
     @Test(description = "validates 404 response for a request with invalid parameters")
@@ -39,7 +39,7 @@ public class NegativeCategoryTest extends BaseTest {
 
         Response response = ServiceUtils.getCategoryResponseForInvalidParameters(categoryId);
         Assert.assertEquals(response.getStatusCode(), RESPONSE_CODE_404);
-        LOGGER.info(response.prettyPeek());
+        logger.info(response.prettyPeek());
     }
 
 }

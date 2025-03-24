@@ -17,7 +17,11 @@ public class ServiceUtils {
     private static final String INCORRECT_CONTENT_TYPE_HEADERS = "text/plain";
     private static final String V_1_CATEGORIES = "v1/Categories/";
     private static final String DETAILS_JSON = "/Details.json";
-    public static Logger LOG = Logger.getLogger(ServiceUtils.class);
+    private static final String CATALOGUE = "catalogue";
+    private static final String REQUST_URI = "Request URI: ";
+    private static final String REQUEST_HEADERS = "Request headers: ";
+    private static final String REQUEST_PARAM = "Request params: ";
+    public static Logger logger = Logger.getLogger(ServiceUtils.class);
 
 
     public static Response getCategoryResponse(String categoryId) {
@@ -27,10 +31,10 @@ public class ServiceUtils {
         request.header(ACCEPT, ACCEPT_HEADERS);
         request.header(ACCEPT_ENCODING, ACCEPT_ENCODING_HEADERS);
         request.header(CONTENT_TYPE, CONTENT_TYPE_HEADERS);
-        request.param("catalogue", false);
-        LOG.info("Request URI: " + request.log().uri());
-        LOG.info("Request headers: " + request.log().headers());
-        LOG.info("Request params: " + request.log().params());
+        request.param(CATALOGUE, false);
+        logger.info(REQUST_URI + request.log().uri());
+        logger.info(REQUEST_HEADERS + request.log().headers());
+        logger.info(REQUEST_PARAM + request.log().params());
         return request.get(V_1_CATEGORIES + categoryId + DETAILS_JSON);
     }
 
@@ -39,10 +43,10 @@ public class ServiceUtils {
         RestAssured.baseURI = ConfigLoader.getInstance().getAPIBaseUrl();
         RequestSpecification request = RestAssured.given().relaxedHTTPSValidation();
         request.header(CONTENT_TYPE, INCORRECT_CONTENT_TYPE_HEADERS);
-        request.param("catalogue", false);
-        LOG.info("Request URI: " + request.log().uri());
-        LOG.info("Request headers: " + request.log().headers());
-        LOG.info("Request params: " + request.log().params());
+        request.param(CATALOGUE, false);
+        logger.info(REQUST_URI + request.log().uri());
+        logger.info(REQUEST_HEADERS + request.log().headers());
+        logger.info(REQUEST_PARAM + request.log().params());
         return request.get(V_1_CATEGORIES + categoryId + DETAILS_JSON);
 
     }
@@ -51,10 +55,10 @@ public class ServiceUtils {
 
         RestAssured.baseURI = ConfigLoader.getInstance().getAPIBaseUrl();
         RequestSpecification request = RestAssured.given().relaxedHTTPSValidation();
-        request.param("catalogue", 1234);
-        LOG.info("Request URI: " + request.log().uri());
-        LOG.info("Request headers: " + request.log().headers());
-        LOG.info("Request params: " + request.log().params());
+        request.param(CATALOGUE, 1234);
+        logger.info(REQUST_URI + request.log().uri());
+        logger.info(REQUEST_HEADERS + request.log().headers());
+        logger.info(REQUEST_PARAM + request.log().params());
         return request.get(V_1_CATEGORIES + categoryId + DETAILS_JSON);
     }
 
@@ -64,10 +68,10 @@ public class ServiceUtils {
         RequestSpecification request = RestAssured.given().relaxedHTTPSValidation();
         request.header(ACCEPT, ACCEPT_HEADERS);
         request.header(ACCEPT_ENCODING, ACCEPT_ENCODING_HEADERS);
-        request.param("catalogue", false);
-        LOG.info("Request URI: " + request.log().uri());
-        LOG.info("Request headers: " + request.log().headers());
-        LOG.info("Request params: " + request.log().params());
+        request.param(CATALOGUE, false);
+        logger.info(REQUST_URI + request.log().uri());
+        logger.info(REQUEST_HEADERS + request.log().headers());
+        logger.info(REQUEST_PARAM + request.log().params());
         return request.get(V_1_CATEGORIES + categoryId + DETAILS_JSON);
     }
 
@@ -78,10 +82,10 @@ public class ServiceUtils {
         request.header(ACCEPT, "");
         request.header(ACCEPT_ENCODING, "");
         request.header(CONTENT_TYPE, "");
-        request.param("catalogue", false);
-        LOG.info("Request URI: " + request.log().uri());
-        LOG.info("Request headers: " + request.log().headers());
-        LOG.info("Request params: " + request.log().params());
+        request.param(CATALOGUE, false);
+        logger.info(REQUST_URI + request.log().uri());
+        logger.info(REQUEST_HEADERS + request.log().headers());
+        logger.info(REQUEST_PARAM + request.log().params());
         return request.get(V_1_CATEGORIES + categoryId + DETAILS_JSON);
     }
 
